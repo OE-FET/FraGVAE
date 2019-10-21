@@ -1,13 +1,13 @@
-Numbers,molecules,smiles,metrics,ChemVAE,ECFP,rnd_FragVAE,FragVAE,ChemVAE_RndF,FragVAE_RndF,rnd_FragVAE_RndF,ECFP_RndF
-1,Dithianon,C1=CC=C2C(=C1)C(=O)C3=C(C2=O)SC(=C(S3)C#N)C#N,0,0.29,0.01,0.18875,0.18208333333333326,0.16,0.2075,0.205,0.0
-2,"Tetrachloro-1,4-benzoquinone",C1(=C(C(=O)C(=C(C1=O)Cl)Cl)Cl)Cl,0,0.32,0.0,0.08,0.48875,0.45,0.5575,0.3225,0.0
-3,Isopropylidenemalononitrile,CC(=C(C#N)C#N)C,0,0.18,0.64,0.045,0.2033333333333333,0.19,0.215,0.125,0.61
-4,"1,4-Bis(dicyanomethylene)cyclohexane",C1CC(=C(C#N)C#N)CCC1=C(C#N)C#N,1,0.78,0.98,0.9683333333333332,0.8345833333333335,0.72,0.7225,0.8075,0.99
-5,"3-Benzylidene-2,4-Pentanedione",CC(=O)C(=CC1=CC=CC=C1)C(=O)C,0,0.02,0.07,0.0033333333333333327,0.035416666666666666,0.04,0.0275,0.02,0.03
-6,HAT-CN6,C(#N)C1=C(N=C2C(=N1)C3=NC(=C(N=C3C4=NC(=C(N=C24)C#N)C#N)C#N)C#N)C#N,1,0.25,0.12,0.08333333333333334,0.08333333333333334,0.06,0.51,0.325,0.04
-7,DDQ,C(#N)C1=C(C(=O)C(=C(C1=O)Cl)Cl)C#N,1,0.22,0.0,0.17833333333333332,0.6591666666666667,0.22,0.6675,0.3725,0.0
-8,Tricyanoaminopropene,C(C#N)C(=C(C#N)C#N)N,1,0.43,0.75,0.08,0.5516666666666666,0.52,0.425,0.1825,0.73
-9,(2-Thienylmethylene)malononitrile,c1cc(sc1)C=C(C#N)C#N,0,0.32,0.57,0.005,0.00625,0.43,0.0125,0.0375,0.55
-10,"(2,5-Dimethyl-2,5-cyclohexadiene-1,4-diylidene)dicyanamide",CC\1=C/C(=N\C#N)/C(=C/C1=N\C#N)C,0,0.18,0.0,0.21,0.7329166666666667,0.16,0.5725,0.455,0.0
-11,"octyl 2-cyano-2-(4-(dicyanomethylene)cyclohexa-2,5-dien-1-ylidene)acetate",N#C/C(C(OCCCCCCCC)=O)=C(C=C/1F)\C(F)=CC1=C(C#N)\C#N,1,0.38,0.97,0.5745833333333333,0.46,0.23,0.6525,0.63,0.99
-12,"2,5-Dimethyl-3,6-dinitro-1,4-benzoquinone",CC1=C(C(=O)C(=C(C1=O)[N+](=O)[O-])C)[N+](=O)[O-],1,0.12,0.0,0.585,0.14875,0.1,0.7425,0.6525,0.0
+Numbers,molecules,smiles,metrics
+1,Dithianon,C1=CC=C2C(=C1)C(=O)C3=C(C2=O)SC(=C(S3)C#N)C#N,0
+2,"Tetrachloro-1,4-benzoquinone",C1(=C(C(=O)C(=C(C1=O)Cl)Cl)Cl)Cl,0
+3,Isopropylidenemalononitrile,CC(=C(C#N)C#N)C,0
+4,"1,4-Bis(dicyanomethylene)cyclohexane",C1CC(=C(C#N)C#N)CCC1=C(C#N)C#N,1
+5,"3-Benzylidene-2,4-Pentanedione",CC(=O)C(=CC1=CC=CC=C1)C(=O)C,0
+6,HAT-CN6,C(#N)C1=C(N=C2C(=N1)C3=NC(=C(N=C3C4=NC(=C(N=C24)C#N)C#N)C#N)C#N)C#N,1
+7,DDQ,C(#N)C1=C(C(=O)C(=C(C1=O)Cl)Cl)C#N,1
+8,Tricyanoaminopropene,C(C#N)C(=C(C#N)C#N)N,1
+9,(2-Thienylmethylene)malononitrile,c1cc(sc1)C=C(C#N)C#N,0
+10,"(2,5-Dimethyl-2,5-cyclohexadiene-1,4-diylidene)dicyanamide",CC\1=C/C(=N\C#N)/C(=C/C1=N\C#N)C,0
+11,"octyl 2-cyano-2-(4-(dicyanomethylene)cyclohexa-2,5-dien-1-ylidene)acetate",N#C/C(C(OCCCCCCCC)=O)=C(C=C/1F)\C(F)=CC1=C(C#N)\C#N,1
+12,"2,5-Dimethyl-3,6-dinitro-1,4-benzoquinone",CC1=C(C(=O)C(=C(C1=O)[N+](=O)[O-])C)[N+](=O)[O-],1

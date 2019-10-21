@@ -12,6 +12,7 @@ from .fho_models import gen_FHO_encoder,gen_FHO_decoder, gen_train_FHO_VAE
 from .vae_callbacks import WeightAnnealer_epoch,sigmoid_schedule
 from .convert_mol_smile_tensor import smile_to_tensor,smile_to_mol,mol_to_tensor,gen_atom_features,gen_bond_features,atom_from_atom_feature,bond_from_bond_feature,gen_sparse_NN_Tensor,atom_bond_from_sparse_NN_feature,gen_sparse_NN_feature
 from .display_funs import display_F1_graphs
+from .utils import tensorflow_shutup,gen_dropout_fun,predict_with_uncertainty,is_valid_substructure,calc_Tanimoto,reset_weights
 from io import BytesIO
 from rdkit.Chem import AllChem as Chem
 import tensorflow as tf
@@ -27,11 +28,12 @@ import pandas as pd
 
 class FraGVAE:
     '''
-    FraGVAE object
+    FraGVAE object to train and test FraGVAE.
     
     '''
     
     def __init__(self, experiment_number,verbose = False,train_dataset='',CV_dataset=''): 
+
         self.params = load_params( 'models/experiment'+str(experiment_number).zfill(6)+'/exp.json',verbose=verbose)
         self.params['exp'] =   experiment_number
         self.params['model_dir'] =   'models/experiment'+str(self.params['exp']).zfill(6)+'/'
@@ -45,12 +47,19 @@ class FraGVAE:
         self.save_params()
         
     def get_params(self):
+        ''' Returns paramater directory. 
+        '''
         return self.params
     
     def set_params(self,params):
+        ''' sets paramater directory. 
+        -params: new directory
+        '''
         self.params = params
     
     def save_params(self):
+        ''' saves current paramater directory. 
+        '''
         save_params(self.params, self.params['model_dir']+'exp.json')    
     
     
@@ -86,13 +95,20 @@ class FraGVAE:
 
 
     def load_models(self,rnd=False,testing = True):
-        
+        ''' Uses params to generate and load (if rnd == False ) a previous
+        FraGVAE model.
+        If rnd==True, a new model will be generated with random parameters
+        if testing == True, will build a F1 decoding model dedicated to decoding
+        fragment bag. This is not required to train the model.
+        '''
         self.load_encoders(rnd=rnd)
         self.load_decoders(rnd=rnd, testing = testing)
 
         
     def load_decoders(self, rnd = False, testing = True):
-        
+        '''
+        Loads FraGVAE decoders for Zc and Zf
+        '''
         self.load_F1_decoders(rnd = rnd)
         
         if(testing):
@@ -105,7 +121,7 @@ class FraGVAE:
 
     def load_F1_decoders(self,rnd = False):
         '''
-        load F1 FraGVAE decoder models 
+        load Zf FraGVAE (F1) decoder models 
         '''
         if(rnd==False):
             from os import path
@@ -142,7 +158,9 @@ class FraGVAE:
                     self.NN_decoder[degree_idx].load_weights(self.params['model_dir']+'F1_NN_decoder_degree_'+str(degree_idx)+'.h5')  
 
     def load_FHO_decoders(self, rnd = False):
-        
+        '''
+        load Zc FraGVAE (FHO) decoder models 
+        '''
         
         if(rnd==False):
             from os import path
@@ -178,7 +196,9 @@ class FraGVAE:
         
     def load_F1_encoders(self, rnd = False):
        
-        
+        '''
+        load Zf FraGVAE (F1) encoder models from save file
+        '''       
         if(rnd==False):
             from os import path
             if(self.params['Best_F1_epoch_num']!=-1):
@@ -201,7 +221,9 @@ class FraGVAE:
                 self.F1_encoder.load_weights(self.params['model_dir']+'F1_Encoder.h5')
 
     def load_FHO_encoders(self, rnd = False):
-
+        '''
+        load Zc FraGVAE (FHO) encoder models from save file
+        '''    
         
         if(rnd==False):
             from os import path
@@ -270,7 +292,9 @@ class FraGVAE:
         filter_libExamples.to_csv('data_lib/'+filename+'filtered.csv',index=False)
 
     def train_f1_models(self):
-        
+        '''
+        Trains current Zf (F1) encoders and decoders in the FraGVAE object
+        '''
         self.f1_train_model = gen_F1_training_model(self.params, F1_encoder = self.F1_encoder, atom_decoder = self.atom_decoder, NN_decoder =self.NN_decoder)
         optimizer  = tf.keras.optimizers.Adam(lr=0.0001)
         self.f1_train_model.compile(optimizer=optimizer, loss='mean_absolute_error')
@@ -278,6 +302,9 @@ class FraGVAE:
         self.train_model(self.f1_train_model, training_fho = False)
         
     def train_fho_models(self):
+        '''
+        Trains current Zc (FHO) encoders and decoders in the FraGVAE object
+        '''
         
         self.fho_train_model = gen_train_FHO_VAE(self.params,self.params['model_name'],self.FHO_encoder,self.FHO_decoder)
         optimizer  = tf.keras.optimizers.Adam(lr=0.0001)
@@ -287,7 +314,6 @@ class FraGVAE:
     
     def train_model(self,model, training_fho = True):
         from functools import partial
-
         '''
         Trains either F1 or FHO model
         '''
@@ -392,8 +418,9 @@ class FraGVAE:
             
     def autoencode_smile(self,smile, display_process = True, trial_walkthrough = False ):
         '''
-        Example function how to decode and encode molecular graph
-        Decoding is problasitic and dregree of 
+        Example functionallity to decode and encode molecular graph.
+        Note: Decoding is problasitic and dregree of decoding can be modified.
+        Options are currently unvaliable, please request functionality if required. 
         '''
         
         #createing a reference molecular for 
@@ -463,7 +490,19 @@ class FraGVAE:
         
     
     def Z_decoder(self,Z_1,Z_HO, display_process = True, mol_recon=-1, trial_walkthrough= False, max_P = True):
-        
+        '''
+        Decodes a moleuclar graph given a positoin in the latent space.
+        inputs:
+            Z_1 - fragment latent space
+            Z_HO - fragment connectivity latent space
+            display_process - displays and saves images of process
+            trial_walkthrough - ignores failures of AI model ( use for testing), requires valid mold_recon
+            mol_recon - a rdkit mol object
+            max_P - AI selects next fragment with maximum probalibity not 
+        Outputs:
+            mol - RDKIT mol
+            
+        '''
         
         NN_Tensor_sampled, atoms_sampled, BagOfF1 = self.decode_F1(Z_1,display_construct = display_process)
         if(display_process):
@@ -509,7 +548,20 @@ class FraGVAE:
     
     
     def decode_F1(self,Z1,display_construct = True):
-        
+        '''
+        Decodes a bag of fragments graph given a positoin in the latent space.
+        inputs:
+            Z_1 - fragment latent space
+            Z_HO - fragment connectivity latent space
+            display_process - displays and saves images of process
+            trial_walkthrough - ignores failures of AI model ( use for testing), requires valid mold_recon
+            mol_recon - a rdkit mol object
+            
+        Outputs:
+            NN_Tensor - a tensor containing a sparse vector indicating neighbouring atom and bond features up to a 'max_degree' for each fragments.
+            Atoms - Center atom of each fragment
+            BagOfF1 - Number of times a specific fragment was decoded  
+        '''
         
         NN_Tensor = np.array([[[0 for k in range(self.params['num_atom_features']*self.params['num_bond_features']+1)] for i in range(self.params['max_degree'])] for j in range(self.params['max_atoms'])])
         Atoms = np.array([[0 for i in range(self.params['num_atom_features'])] for j in range(self.params['max_atoms'])])
@@ -597,9 +649,25 @@ class FraGVAE:
     
     def Z_encoder(self,atoms, bonds ,edges):
         '''
-        Encodes fragnments bag and fragment connectivity
+        Encodes fragnments bag and fragment connectivity.
         
+        inputs:
+            atom - tensor size: (max_atoms, num_atom_features) This matrix defines the atom features. Each column in the atom matrix represents the feature vector for the atom at the index of that column.
+            edge - tensor size: (max_atoms, max_degree) This matrix defines the connectivity between atoms. Each column in the edge matrix represent the neighbours of an atom. The neighbours are encoded by an integer representing the index of their feature vector in the atom matrix. As atoms can have a variable number of neighbours, not all rows will have a neighbour index defined. These entries are filled with the masking value of -1. (This explicit edge matrix masking value is important for the layers to work)
+            bond - tensor size: (max_atoms, max_degree, num_bond_features) This matrix defines the atom features. The first two dimensions of this tensor represent the bonds defined in the edge tensor. The column in the bond tensor at the position of the bond index in the edge tensor defines the features of that bond.
+        
+        Outputs:
+            Z1 - Fragment bag encoding
+            ZHO - Fragment connectivity encoding
+            ZHO_Z1 - vector component of ZHO that corresponds to a graph convoltion with degree one centered on atoms. 
+            ZHO_Z2 - vector component of ZHO that corresponds to a graph convoltion with degree one centered on bonds. 
+            ZHO_ZR - vector component of ZHO that corresponds to a graph convoltion around all known rings. 
+            ZHO_ZS - vector component of ZHO that corresponds to a all graph convoltions which do not contain dangling bonds. 
+
+            
         '''
+        
+        
         
     
         MSA = np.ones((len(atoms),self.params['Num_Graph_Convolutions'],self.params['max_dangle_atoms'],1))
@@ -620,9 +688,25 @@ class FraGVAE:
         Z1 = np.sum(Z1_set,axis=-2)
         return Z1 , ZHO,ZHO_Z1,ZHO_Z2,ZHO_ZR,ZHO_ZS
     
-    def sample_FHO_encoder(self,atoms,Dangling_atoms,bonds,edge,MSA,MSB):
-       
-        z,z_error,z1,z2,zR,zS = self.FHO_encoder.predict([atoms,Dangling_atoms, bonds, edge,MSA,MSB])
+    def sample_FHO_encoder(self,atoms,dangling_atoms,bonds,edge,MSA,MSB):
+        '''
+        Samples FraGVAE FHO encoder 
+        Inputs:
+            atom - tensor size: (max_atoms, num_atom_features) This matrix defines the atom features. Each column in the atom matrix represents the feature vector for the atom at the index of that column.
+            dangling_atoms - tensor size: (max_atoms, 1) atoms which are dangling atoms
+            edge - tensor size: (max_atoms, max_degree) This matrix defines the connectivity between atoms. Each column in the edge matrix represent the neighbours of an atom. The neighbours are encoded by an integer representing the index of their feature vector in the atom matrix. As atoms can have a variable number of neighbours, not all rows will have a neighbour index defined. These entries are filled with the masking value of -1. (This explicit edge matrix masking value is important for the layers to work)
+            bond - tensor size: (max_atoms, max_degree, num_bond_features) This matrix defines the atom features. The first two dimensions of this tensor represent the bonds defined in the edge tensor. The column in the bond tensor at the position of the bond index in the edge tensor defines the features of that bond.
+            MSA  - tensor size: (Num_Graph_Convolutions, max_atoms, 1), This matrix indicates (0 or 1) if a graph convolution centered on a atom has dangling atom with a raidus (below Num_Graph_Convolutions) of graph convolutions. This allows the extraction of ZHO_ZS
+            MSA  - tensor size: (Num_Graph_Convolutions, max_atoms*max_degree, 1), This matrix indicates (0 or 1) if a graph convolution centered on a bond has dangling atom with a raidus (below Num_Graph_Convolutions) of graph convolutions. This allows the extraction of ZHO_ZS
+        Outputs:
+            z - Fragment connectivity encoding
+            z_error - variational error
+            z1 - vector component of ZHO that corresponds to a graph convoltion with degree one centered on atoms. 
+            z2 - vector component of ZHO that corresponds to a graph convoltion with degree one centered on bonds. 
+            zR - vector component of ZHO that corresponds to a graph convoltion around all known rings. 
+            zS - vector component of ZHO that corresponds to a all graph convoltions which do not contain dangling bonds. 
+        '''
+        z,z_error,z1,z2,zR,zS = self.FHO_encoder.predict([atoms,dangling_atoms, bonds, edge,MSA,MSB])
         return z,z1,z2,zR,zS
     
     def reset_weights(self):
@@ -640,19 +724,19 @@ class FraGVAE:
                     limit= np.sqrt(6/(weight.shape[0]))
                     new_weights.append(np.random.uniform(-limit,limit,weight.shape[0]))
                 else:
-                    limit= np.sqrt(6/(weight))
+                    limit = np.sqrt(6/(1))
                     new_weights.append(np.random.uniform(-limit,limit,(1,))[0])
             model.set_weights(new_weights)
-            return model   
-        self.F1_encoder = reset_model(self.F1_encoder)
+            return model 
         
+        self.F1_encoder = reset_model(self.F1_encoder)
         
         self.atom_decoder = reset_model(self.atom_decoder )
         
-        for degree_idx in range(0,params['max_degree'] ):
+        for degree_idx in range(0,self.params['max_degree'] ):
             self.NN_decoder[degree_idx] = reset_model(self.NN_decoder[degree_idx])
         
-        self.F1_decoder = reset_model(self.F1_decoder)
+
         self.FHO_decoder = reset_model(self.FHO_decoder)
         self.FHO_encoder = reset_model(self.FHO_encoder)
 
@@ -662,6 +746,18 @@ class FraGVAE:
         '''
         Prodeccure for reconstructing the complete graph using tesnsorflow models and bag of fragments.
         Process can generate GIFs to determine point of failure.
+        
+        Inputs:
+            Atoms - standard atoms tensor
+            Z_HO - encoded latent space connectivity
+            Frag_z1 - ZHO latent space of bag of fragments
+            BagOfF1 - Number of times a specific fragment was decoded
+            display_construct - produces images of process
+
+            
+            
+        Output:
+            mol - rdkit mol
         '''
         
         #randomizing the nucleating fragment 
@@ -999,6 +1095,14 @@ class FraGVAE:
 
 
     def gen_dropout_fun(self,model):
+        '''
+        Function for producing model with dropout
+        input:
+            model - tensorflow model
+        output:
+            f - tensorflow function
+        
+        '''
         # for some model with dropout ...
         inputs = []
         for input_layer in model._input_layers:
@@ -1013,7 +1117,16 @@ class FraGVAE:
         return f
     
     def calc_Tanimoto(self,z1,z2):
-    
+        '''
+        Function for producing model with dropout
+        input:
+            z1 - latent space 1
+            z2 - latent space 2
+        
+        output:
+            tanimoto_val - calculated tanimoto_val value
+        
+        '''
         z1 = z1[0]
         z2 = z2[0]
         
@@ -1040,7 +1153,10 @@ Addtional hidden funcutions to support FraGVAE
 "'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 def plot_Normal(test_prediction, test_uncertainty, best_prediction, best_uncertainty, test_z_score,best_z_score,pic_size):
-    
+    '''
+    Visual repsentation of ML calculated probability if proposed fagment is valid.  
+
+    '''
     x = (np.array(range(0,220))-10)/200
     
     def norm_fun(std, mean, x):
@@ -1109,7 +1225,9 @@ def plot_Normal(test_prediction, test_uncertainty, best_prediction, best_uncerta
 
 
 def plot_Tanimoto(test_Tanimoto_bag,test_Tanimoto_idx,best_Tanimoto_bag,best_Tanimoto_idx,pic_size):
-    
+    '''
+    plot of tanimoto index changing with time.
+    '''
 
     
     plt.figure(figsize=(pic_size[0]/100,pic_size[1]/100), dpi=100)
@@ -1147,12 +1265,19 @@ def plot_Tanimoto(test_Tanimoto_bag,test_Tanimoto_idx,best_Tanimoto_bag,best_Tan
     return P_F1_N
 
 def vstack_img(img_top,img_bottom):
+    '''
+    stacks two png images veritically 
+    '''
     
     imgs_comb = np.vstack( (np.asarray( i ) for i in [img_top,img_bottom] ) )
     imgs_comb = PIL.Image.fromarray( imgs_comb)
     return imgs_comb 
  
 def gen_FHO_construct_img(display_img_fp,gif_num,best_z_test,z_test,best_Tanimoto,test_Tanimoto,trial_walkthrough,check_ring,full_sixth_pic_size,font_size,single_space,mol_pic_size):
+    '''
+    Generate image of current fragment reconstruction status 
+    '''
+    
     [cur_img_fp,best_Frag_img_fp,plot_Normal_fp,Frag_img_fp,test_img_fp,plot_Tanimoto_fp] =display_img_fp
     if(best_z_test<-10E10):
         img = PIL.Image.new('RGB', mol_pic_size, color = 'white')
@@ -1233,6 +1358,11 @@ def gen_FHO_construct_img(display_img_fp,gif_num,best_z_test,z_test,best_Tanimot
 
 
 def plot_N_selection(select_node,AI_N,atoms,NN_Tensor,half_pic_size,single_space,gif_num,font_size,params):
+    '''
+    Plots probability of selecting a specific node. 
+    
+    '''
+    
     AI_N = AI_N[0]
     select_node = int(np.argmax(select_node[0]))
     num_F1 = np.sum( np.sum(atoms))
@@ -1357,6 +1487,10 @@ def plot_N_selection(select_node,AI_N,atoms,NN_Tensor,half_pic_size,single_space
 
 
 def plot_NN_selection(select_NN, AI_NN, atoms, NN_Tensor,NN_Tensor_next, half_pic_size, single_space, gif_num, font_size,given, degree_idx,params):
+    '''
+    Plots probability of selecting a specific nearset neighour node + edge. 
+    
+    '''
     select_NN =int( np.argmax(select_NN[0]))
     AI_NN= AI_NN[0]
     NN_categories = ['0']+['-'+i for i in params["atoms"]]+['='+i for i in params["atoms"]]+['#'+i for i in params["atoms"]]+['≈'+i for i in params["atoms"]]

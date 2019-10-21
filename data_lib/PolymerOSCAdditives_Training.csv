@@ -1,70 +1,70 @@
-Numbers,molecules,smiles,metrics,ChemVAE,ECFP,rnd_FragVAE,FragVAE,ChemVAE_RndF,FragVAE_RndF,rnd_FragVAE_RndF,ECFP_RndF
-1,Fumaronitrile,C(=CC#N)C#N,0,0.05,0.0057619047619047615,0.005,0.005,0.085,0.0875,0.1325,0.0
-2,Methanol,C[O],0,0.01,0.0,0.004666666666666667,0.0,0.0,0.0225,0.065,0.0
-3,Butanedithiol,SCCCCS,0,0.03125,0.0,0.0,0.0,0.11,0.02,0.0125,0.0
-4,(Methyl)naphthalene,CC1=CC=CC2=CC=CC=C21,0,0.0275,0.0,0.0,0.0,0.0,0.0025,0.015,0.0
-5,Poly(ethylene succinate),COCCOC(CCC(CCOCCOC(C)=O)=O)=O,0,0.09291666666666666,0.09936904761904762,0.0,0.011666666666666669,0.13,0.365,0.0975,0.095
-6,polyamine,[N]CCNCCN(CCN(CC[N])CC[N])CCN(CCNCC[N])CC[N]CCN(CC[N])CCC,0,0.15775000000000006,0.04374999999999999,0.105,0.505,0.365,0.2325,0.13,0.02
-7,"2-(2H-Benzotriazol-2-yl)-4,6-bis(1-methyl-1-phenylethyl)phenol",CC(C)(C1=CC=CC=C1)C2=CC(=C(C(=C2)N3N=C4C=CC=CC4=N3)O)C(C)(C)C5=CC=CC=C5,0,0.3004166666666667,0.0,0.2016666666666667,0.01333333333333333,0.36,0.585,0.35,0.0
-8,"2-(2H-Benzotriazol-2-yl)-4-(1,1,3,3-tetramethylbutyl)phenol",CC(C)(C)CC(C)(C)C1=CC(=C(C=C1)O)N2N=C3C=CC=CC3=N2,0,0.06583333333333334,0.0,0.0,0.0,0.1275,0.0075,0.0275,0.0
-9,"6-tert-Butyl-2,3-naphthalenedicarbonitrile",CC(C)(C)C1=CC2=C(C=C1)C=C(C(=C2)C#N)C#N,0,0.1075,0.005416666666666666,0.0,0.025,0.255,0.0075,0.0025,0.0
-10,"a,a,a'a'-Tetramethyl-1,3-benzenedipropionitrile",CC(C)(CC1=CC(=CC=C1)CC(C)(C)C#N)C#N,0,0.21875,0.0,0.0,0.0,0.355,0.0025,0.0375,0.0
-11,10-Chloro-9-anthraldehyde,C1=CC=C2C(=C1)C(=C3C=CC=CC3=C2Cl)C=O,0,0.0886547619047619,0.0016666666666666663,0.0,0.0,0.0,0.065,0.085,0.0
-12,4-Phenyltoluene,CC1=CC=C(C=C1)C2=CC=CC=C2,0,0.02333333333333333,0.0,0.0,0.0,0.0,0.0,0.0025,0.0
-13,"4,4'-Dimethylbiphenyl",CC1=CC=C(C=C1)C2=CC=C(C=C2)C,0,0.0575,0.0,0.0,0.0,0.0,0.0,0.005,0.0
-14,Heptadecanenitrile,CCCCCCCCCCCCCCCCC#N,0,0.25249999999999995,0.0,0.0,0.0,0.1225,0.04,0.225,0.0
-15,"4,4'-Di-tert-butylbiphenyl",CC(C)(C)C1=CC=C(C=C1)C2=CC=C(C=C2)C(C)(C)C,0,0.2048333333333333,0.0,0.0,0.0,0.26,0.0025,0.0075,0.0
-16,"3,4,7,8-Tetramethyl-1,10-phenanthroline",CC1=CN=C2C(=C1C)C=CC3=C(C(=CN=C32)C)C,0,0.2903333333333333,0.0,0.01875,0.03,0.1775,0.21,0.02,0.0
-17,4-Phenoxybenzonitrile,C1=CC=C(C=C1)OC2=CC=C(C=C2)C#N,0,0.06041666666666666,0.0,0.0016666666666666663,0.13,0.0225,0.0,0.015,0.0
-18,"4,5-Dioctyloxy-1,2-Benzenedicarbonitrile",CCCCCCCCOC1=C(C=C(C(=C1)C#N)C#N)OCCCCCCCC,0,0.135,0.004333333333333333,0.0,0.0,0.31,0.1025,0.1125,0.0
-19,"4,4'-(Hexafluroisopropylidene)dianiline",C1=CC(=CC=C1C(C2=CC=C(C=C2)N)(C(F)(F)F)C(F)(F)F)N,0,0.175,0.0,0.0,0.01,0.0925,0.01,0.015,0.0
-20,"2,4,7,9-Tetramethyl-5-decyne-4,7-diol,mizture of (+/-) and meso",CC(C)CC(C)(C#CC(C)(CC(C)C)O)O,0,0.1305,0.0,0.0,0.005,0.31,0.1725,0.065,0.0
-21,2-Chloro-4-nitroaniline,C1=CC(=C(C=C1[N+](=O)[O-])Cl)N,0,0.0525,0.0,0.0,0.006666666666666665,0.0,0.025,0.025,0.0
-22,2-(2H-Benzotriazol-2-yl)-6-dodecyl-4-methylphenol,CCCCCCCCCCCCC1=C(C(=CC(=C1)C)N2N=C3C=CC=CC3=N2)O,0,0.05458333333333334,0.003,0.0,0.0,0.0075,0.1825,0.0625,0.0
-23,Tetraethylene Glycol,C(COCCOCCOCCO)O,0,0.13458333333333333,0.0,0.0,0.015,0.0,0.0525,0.0175,0.0
-24,Tween 20,CCCCCCCCCCCC(=O)OCCOCC(C1C(C(CO1)OCCO)OCCO)OCCO,0,0.10116666666666667,0.0022500000000000003,0.0,0.03166666666666667,0.035,0.415,0.04,0.0
-25,"4,4-Dichlorodiphenyl Sulfone",C1=CC(=CC=C1S(=O)(=O)C2=CC=C(C=C2)Cl)Cl,0,0.26825000000000004,0.0,0.0,0.0,0.2425,0.005,0.045,0.0
-26,"4,4'-Dichlorobiphenyl",C1C=C(C=CC1(Cl)Cl)C2=CC=CC=C2,0,0.0975,0.0,0.0,0.22666666666666666,0.2475,0.13,0.0625,0.0
-27,4-4-Biphenyldicarbonitrile,C1=CC(=CC=C1C#N)C2=CC=C(C=C2)C#N,0,0.0415,0.012672619047619049,0.09083333333333332,0.3333333333333333,0.045,0.01,0.0775,0.0
-28,4-4'-Dimethoxybiphenyl,COC1=CC=C(C=C1)C2=CC=C(C=C2)OC,0,0.085,0.0,0.0,0.005,0.0,0.0,0.0,0.0
-29,"2,2-dimethylbiphenyl",CC1=CC=CC=C1C2=CC=CC=C2C,0,0.09916666666666668,0.00625,0.0,0.0,0.1025,0.0,0.1225,0.0
-30, 2-Flurophenly 2-nitrophenyl Ether,CCCCCCCCCCCCOC1=CC=CC=C1[N+](=O)[O-],0,0.09208333333333332,0.0,0.0,0.0,0.0125,0.0025,0.025,0.0
-31,"3,3-dimethylbiphenyl",CC1=CC=CC(=C1)C2=CC(=CC=C2)C,0,0.02,0.0,0.0,0.0,0.0,0.0,0.065,0.0
-32,Phenylbenzonitrile,C1=CC=C(C=C1)C2=CC=C(C=C2)C#N,0,0.07866666666666666,0.0,0.0016666666666666663,0.017916666666666664,0.0,0.0,0.0625,0.0
-33,4-methyl-2-biphenylcarbonitrile,CC1=CC=C(C=C1)C2=CC=CC=C2C#N,0,0.011666666666666669,0.0029166666666666664,0.0,0.0,0.0,0.0,0.0125,0.0
-34,Malononitrile,C(C#N)C#N,0,0.10383333333333336,0.0022619047619047623,0.0025,0.0016666666666666663,0.3225,0.0125,0.145,0.0
-35,Naphthalene-2-carbonitrile,C1=CC=C2C=C(C=CC2=C1)C#N,0,0.2070833333333333,0.0,0.0,0.0,0.0,0.0,0.035,0.0
-36,"3,5-Di-tert-butyltoluene",CC1=CC(=CC(=C1)C(C)(C)C)C(C)(C)C,0,0.065,0.0,0.005,0.005,0.21,0.015,0.005,0.0
-37,Stearonitrile,CCCCCCCCCCCCCCCCCC#N,0,0.2695833333333333,0.0,0.0016666666666666663,0.0016666666666666663,0.14,0.0375,0.31,0.0
-38," 2,6-diphenylcyclohexanone",C1CC(C(=O)C(C1)C2=CC=CC=C2)C3=CC=CC=C3,0,0.35766666666666663,0.0,0.11333333333333333,0.01,0.015,0.155,0.3775,0.0
-39,"1,3-Diphenyl-2-propanone",C1=CC=C(C=C1)CC(=O)CC2=CC=CC=C2,0,0.11425,0.008583333333333333,0.0016666666666666663,0.0,0.01,0.0025,0.05,0.0
-40,Poly(Ethylene Glycol),C(COCCOCCOCCOCCOCOCCOCCO)O,0,0.09416666666666668,0.0,0.005,0.025,0.015,0.0325,0.035,0.0
-41,Polyvinyl Alcohol,CC(O)CC(O)CC(O)CC(O)CC(O)CC(O)CC,0,0.05,0.0,0.01,0.155,0.285,0.495,0.0225,0.0
-42,Cyanoacrylate,CCOC(=O)C(=C)C#N,0,0.0675,0.131,0.01,0.01916666666666667,0.2125,0.2975,0.0725,0.0775
-43,4-dodecylbenzoic acid,CCCCCCCCCCCCC1=CC=C(C=C1)C(=O)O,0,0.17966666666666664,0.0020833333333333333,0.0,0.0,0.01,0.0125,0.02,0.0
-44,Benzophenone,C1=CC=C(C=C1)C(=O)C2=CC=CC=C2,0,0.35925,0.001,0.2504166666666667,0.011666666666666664,0.0325,0.01,0.075,0.0
-45,Acetic Acid,CC(=O)O,0,0.015,0.003875,0.005,0.0,0.0025,0.1125,0.0275,0.0
-46,benzodifurandione-based oligo(p-phenylene vinylene),C=C(N(CC(C)CCC)C1=CC=CC=C1/2)C2=C(C(O3)=O)/C(C3=C4)=CC5=C4/C(C(O5)=O)=C6C7=CC=CC=C7N(CC(C)CCC)C/6=O,0,0.22883333333333336,0.012583333333333334,0.15291666666666667,0.25625,0.1925,0.5475,0.34,0.0
-47,difluoro-benzodifurandione-based oligo(p-phenylene vinylene),C=C(N(CC(C)CCC)C1=CC=C(F)C=C1/2)C2=C(C(O3)=O)/C(C3=C4)=CC5=C4/C(C(O5)=O)=C6C7=CC(F)=CC=C7N(CC(C)CCC)C/6=O,0,0.12458333333333335,0.013916666666666666,0.10833333333333334,0.26566666666666666,0.24,0.39,0.2925,0.0
-48,"9,10-anthraquinone",C1=CC=C2C(=C1)C(=O)C3=CC=CC=C3C2=O,0,0.1379166666666667,0.023250000000000003,0.029583333333333336,0.028333333333333325,0.025,0.125,0.075,0.0
-49,"2-(tert-butyl)anthracene-9,10-dione",O=C1C2=C(C=CC(C(C)(C)C)=C2)C(C3=C1C=CC=C3)=O,0,0.14883333333333335,0.029476190476190475,0.0075,0.07833333333333332,0.0375,0.145,0.08,0.0
-50,2-(4-(dicyanomethyl)phenyl)-2-(tetrahydrofuran-2-yl)malononitrile,N#CC(C#N)C1=CC=C(C(C2OCCC2)(C#N)C#N)C=C1,0,0.11375,0.1696190476190476,0.2583333333333333,0.035,0.7425,0.25,0.2325,0.12
-51,octyl 2-cyano-2-(4-(dicyanomethyl)phenyl)acetate,CCCCCCCCOC(C(C#N)C1=C(F)C=C(C(C#N)C#N)C(F)=C1)=O,0,0.0475,0.1874047619047619,0.005,0.09708333333333333,0.3675,0.3675,0.0825,0.1325
-52,Aminobenzonitirle,NC1=CC=C(C#N)C=C1,0,0.16791666666666666,0.0,0.0,0.0,0.0025,0.0375,0.0525,0.0
-53,4-dodecylbenzenesulfonic acid,CCCCCCCCCCCCC1=CC=C(C=C1)S(=O)(=O)O,0,0.15583333333333335,0.0,0.0,0.005,0.105,0.01,0.01,0.0
-54,"2-Fluoro-7,7,8,8-tetracyanoquinodimethane",C1=CC(=C(C#N)C#N)C(=CC1=C(C#N)C#N)F,1,0.3784166666666666,0.9853214285714288,0.9934166666666668,0.9904166666666668,0.76,0.8925,0.92,0.9975
-55,"2,2'-(perfluoronaphthalene-2,6-diylidene)dimalononitrile",C(#N)C(=C1C(=C2C(=C(C(=C(C#N)C#N)C(=C2F)F)F)C(=C1F)F)F)C#N,1,0.3895833333333333,0.9941666666666668,1.0,0.9983333333333332,0.7125,0.74,0.97,0.9975
-56,"2,2',2''-(cyclopropane-1,2,3-triylidene)trimalononitrile",N#C/C(C#N)=C(/C/1=C(C#N)/C#N)\C1=C(C#N)\C#N,1,0.2300833333333333,0.995,0.9983333333333334,0.995,0.565,0.575,0.9,1.0
-57,Tetrafluorotetracyanoquinodimethane,C(#N)C(=C1C(=C(C(=C(C#N)C#N)C(=C1F)F)F)F)C#N,1,0.20041666666666666,0.9966071428571428,0.9975,0.995,0.6325,0.895,0.8475,1.0
-58,"2,5-Difluoro-7,7,8,8-tetracyanoquinodimethane",C1=C(C(=C(C#N)C#N)C=C(C1=C(C#N)C#N)F)F,1,0.4150119047619048,0.9870833333333332,1.0,0.999,0.8425,0.9525,0.8875,0.99
-59,"t-Butyl-tetracyano-9,10-anthraquinodimethane",N#C/C(C#N)=C(C1=C2C=CC=C1)/C3=C(/C2=C(C#N)/C#N)C=C(C(C)(C)C)C=C3,1,0.3934166666666667,1.0,0.9529166666666664,0.955,0.395,0.58,0.5725,1.0
-60,"11,11-dicyano-9-anthraquino-10-methane ",O=C(C1=C/2C=CC=C1)C3=C(C=CC=C3)C2=C(C#N)/C#N,1,0.1708333333333333,0.255,0.7145833333333335,0.6483333333333334,0.4275,0.075,0.295,0.305
-61,"11,11,12,12-tetracyano-9,10-anthraquinodimethane",N#C/C(C#N)=C(C1=C/2C=CC=C1)/C3=C(C=CC=C3)C2=C(C#N)/C#N,1,0.17125,1.0,0.9316666666666668,0.9754166666666666,0.545,0.6725,0.7475,1.0
-62,"trimethyl 2,2',2''-(5H-diindeno[1,2-a:1',2'-c]fluorene-5,10,15-triylidene)(2E,2'E,2''E)-tris(2-cyanoacetate)",N#C/C(C(OC)=O)=C1C2=C(C=CC=C2)C3=C/1C(C(C=CC=C4)=C4/C5=C(C(OC)=O)/C#N)=C5C(C6=C/7C=CC=C6)=C3C7=C(C#N)\C(OC)=O,1,0.255,0.8218333333333336,0.9595833333333332,0.99,0.5325,0.5525,0.75,0.89
-63,"triethyl 2,2',2''-(5H-diindeno[1,2-a:1',2'-c]fluorene-5,10,15-triylidene)(2E,2'E,2''E)-tris(2-cyanoacetate)",N#C/C(C(OCC)=O)=C1C2=C(C=CC=C2)C3=C/1C(C(C=CC=C4)=C4/C5=C(C(OCC)=O)/C#N)=C5C(C6=C/7C=CC=C6)=C3C7=C(C#N)\C(OCC)=O,1,0.44025,0.8625833333333331,0.97,0.9920833333333334,0.7325,0.5475,0.56,0.9075
-64,"methyl 2-cyano-2-(4-(dicyanomethylene)cyclohexa-2,5-dien-1-ylidene)acetate",N#C/C(C(OC)=O)=C(C(F)=C/1F)\C(F)=C(F)C1=C(C#N)\C#N,1,0.16233333333333333,0.9755714285714286,0.9958333333333332,0.99,0.235,0.9225,0.865,0.99
-65,"2,5-Dimethyl-7,7,8,8-tetracyanoquinodimethane",CC1=CC(=C(C#N)C#N)C(=CC1=C(C#N)C#N)C,1,0.2781666666666666,0.99325,1.0,0.9866666666666668,0.36,0.93,0.835,0.9925
-66,"11,11,12,12-Tetracyanonaphtho-2,6-quinodimethane",C1=CC(=C(C#N)C#N)C=C2C1=CC(=C(C#N)C#N)C=C2,1,0.3843333333333333,0.990952380952381,0.9933333333333332,0.9883333333333332,0.7675,0.56,0.725,0.995
-67,Tetracyanoethylene,C(#N)C(=C(C#N)C#N)C#N,1,0.26583333333333337,0.8250833333333332,0.06,0.295,0.545,0.0725,0.065,0.8175
-68,"octyl 2-cyano-2-(4-(dicyanomethylene)cyclohexa-2,5-dien-1-ylidene)acetate",N#C/C(C(OCCCCCCCC)=O)=C(C(F)=C/1F)\C(F)=C(F)C1=C(C#N)\C#N,1,0.2909523809523809,0.976,0.8337499999999999,0.7363333333333333,0.4275,0.62,0.755,0.985
-69,Tetracyanoquinodimethane,c1cc(=C(C#N)C#N)ccc1=C(C#N)C#N,1,0.3524166666666666,0.9804978354978356,0.9646666666666668,0.9104166666666664,0.6625,0.5,0.8225,0.995
+Numbers,molecules,smiles,metrics
+1,Fumaronitrile,C(=CC#N)C#N,0
+2,Methanol,C[O],0
+3,Butanedithiol,SCCCCS,0
+4,(Methyl)naphthalene,CC1=CC=CC2=CC=CC=C21,0
+5,Poly(ethylene succinate),COCCOC(CCC(CCOCCOC(C)=O)=O)=O,0
+6,polyamine,[N]CCNCCN(CCN(CC[N])CC[N])CCN(CCNCC[N])CC[N]CCN(CC[N])CCC,0
+7,"2-(2H-Benzotriazol-2-yl)-4,6-bis(1-methyl-1-phenylethyl)phenol",CC(C)(C1=CC=CC=C1)C2=CC(=C(C(=C2)N3N=C4C=CC=CC4=N3)O)C(C)(C)C5=CC=CC=C5,0
+8,"2-(2H-Benzotriazol-2-yl)-4-(1,1,3,3-tetramethylbutyl)phenol",CC(C)(C)CC(C)(C)C1=CC(=C(C=C1)O)N2N=C3C=CC=CC3=N2,0
+9,"6-tert-Butyl-2,3-naphthalenedicarbonitrile",CC(C)(C)C1=CC2=C(C=C1)C=C(C(=C2)C#N)C#N,0
+10,"a,a,a'a'-Tetramethyl-1,3-benzenedipropionitrile",CC(C)(CC1=CC(=CC=C1)CC(C)(C)C#N)C#N,0
+11,10-Chloro-9-anthraldehyde,C1=CC=C2C(=C1)C(=C3C=CC=CC3=C2Cl)C=O,0
+12,4-Phenyltoluene,CC1=CC=C(C=C1)C2=CC=CC=C2,0
+13,"4,4'-Dimethylbiphenyl",CC1=CC=C(C=C1)C2=CC=C(C=C2)C,0
+14,Heptadecanenitrile,CCCCCCCCCCCCCCCCC#N,0
+15,"4,4'-Di-tert-butylbiphenyl",CC(C)(C)C1=CC=C(C=C1)C2=CC=C(C=C2)C(C)(C)C,0
+16,"3,4,7,8-Tetramethyl-1,10-phenanthroline",CC1=CN=C2C(=C1C)C=CC3=C(C(=CN=C32)C)C,0
+17,4-Phenoxybenzonitrile,C1=CC=C(C=C1)OC2=CC=C(C=C2)C#N,0
+18,"4,5-Dioctyloxy-1,2-Benzenedicarbonitrile",CCCCCCCCOC1=C(C=C(C(=C1)C#N)C#N)OCCCCCCCC,0
+19,"4,4'-(Hexafluroisopropylidene)dianiline",C1=CC(=CC=C1C(C2=CC=C(C=C2)N)(C(F)(F)F)C(F)(F)F)N,0
+20,"2,4,7,9-Tetramethyl-5-decyne-4,7-diol,mizture of (+/-) and meso",CC(C)CC(C)(C#CC(C)(CC(C)C)O)O,0
+21,2-Chloro-4-nitroaniline,C1=CC(=C(C=C1[N+](=O)[O-])Cl)N,0
+22,2-(2H-Benzotriazol-2-yl)-6-dodecyl-4-methylphenol,CCCCCCCCCCCCC1=C(C(=CC(=C1)C)N2N=C3C=CC=CC3=N2)O,0
+23,Tetraethylene Glycol,C(COCCOCCOCCO)O,0
+24,Tween 20,CCCCCCCCCCCC(=O)OCCOCC(C1C(C(CO1)OCCO)OCCO)OCCO,0
+25,"4,4-Dichlorodiphenyl Sulfone",C1=CC(=CC=C1S(=O)(=O)C2=CC=C(C=C2)Cl)Cl,0
+26,"4,4'-Dichlorobiphenyl",C1C=C(C=CC1(Cl)Cl)C2=CC=CC=C2,0
+27,4-4-Biphenyldicarbonitrile,C1=CC(=CC=C1C#N)C2=CC=C(C=C2)C#N,0
+28,4-4'-Dimethoxybiphenyl,COC1=CC=C(C=C1)C2=CC=C(C=C2)OC,0
+29,"2,2-dimethylbiphenyl",CC1=CC=CC=C1C2=CC=CC=C2C,0
+30, 2-Flurophenly 2-nitrophenyl Ether,CCCCCCCCCCCCOC1=CC=CC=C1[N+](=O)[O-],0
+31,"3,3-dimethylbiphenyl",CC1=CC=CC(=C1)C2=CC(=CC=C2)C,0
+32,Phenylbenzonitrile,C1=CC=C(C=C1)C2=CC=C(C=C2)C#N,0
+33,4-methyl-2-biphenylcarbonitrile,CC1=CC=C(C=C1)C2=CC=CC=C2C#N,0
+34,Malononitrile,C(C#N)C#N,0
+35,Naphthalene-2-carbonitrile,C1=CC=C2C=C(C=CC2=C1)C#N,0
+36,"3,5-Di-tert-butyltoluene",CC1=CC(=CC(=C1)C(C)(C)C)C(C)(C)C,0
+37,Stearonitrile,CCCCCCCCCCCCCCCCCC#N,0
+38," 2,6-diphenylcyclohexanone",C1CC(C(=O)C(C1)C2=CC=CC=C2)C3=CC=CC=C3,0
+39,"1,3-Diphenyl-2-propanone",C1=CC=C(C=C1)CC(=O)CC2=CC=CC=C2,0
+40,Poly(Ethylene Glycol),C(COCCOCCOCCOCCOCOCCOCCO)O,0
+41,Polyvinyl Alcohol,CC(O)CC(O)CC(O)CC(O)CC(O)CC(O)CC,0
+42,Cyanoacrylate,CCOC(=O)C(=C)C#N,0
+43,4-dodecylbenzoic acid,CCCCCCCCCCCCC1=CC=C(C=C1)C(=O)O,0
+44,Benzophenone,C1=CC=C(C=C1)C(=O)C2=CC=CC=C2,0
+45,Acetic Acid,CC(=O)O,0
+46,benzodifurandione-based oligo(p-phenylene vinylene),C=C(N(CC(C)CCC)C1=CC=CC=C1/2)C2=C(C(O3)=O)/C(C3=C4)=CC5=C4/C(C(O5)=O)=C6C7=CC=CC=C7N(CC(C)CCC)C/6=O,0
+47,difluoro-benzodifurandione-based oligo(p-phenylene vinylene),C=C(N(CC(C)CCC)C1=CC=C(F)C=C1/2)C2=C(C(O3)=O)/C(C3=C4)=CC5=C4/C(C(O5)=O)=C6C7=CC(F)=CC=C7N(CC(C)CCC)C/6=O,0
+48,"9,10-anthraquinone",C1=CC=C2C(=C1)C(=O)C3=CC=CC=C3C2=O,0
+49,"2-(tert-butyl)anthracene-9,10-dione",O=C1C2=C(C=CC(C(C)(C)C)=C2)C(C3=C1C=CC=C3)=O,0
+50,2-(4-(dicyanomethyl)phenyl)-2-(tetrahydrofuran-2-yl)malononitrile,N#CC(C#N)C1=CC=C(C(C2OCCC2)(C#N)C#N)C=C1,0
+51,octyl 2-cyano-2-(4-(dicyanomethyl)phenyl)acetate,CCCCCCCCOC(C(C#N)C1=C(F)C=C(C(C#N)C#N)C(F)=C1)=O,0
+52,Aminobenzonitirle,NC1=CC=C(C#N)C=C1,0
+53,4-dodecylbenzenesulfonic acid,CCCCCCCCCCCCC1=CC=C(C=C1)S(=O)(=O)O,0
+54,"2-Fluoro-7,7,8,8-tetracyanoquinodimethane",C1=CC(=C(C#N)C#N)C(=CC1=C(C#N)C#N)F,1
+55,"2,2'-(perfluoronaphthalene-2,6-diylidene)dimalononitrile",C(#N)C(=C1C(=C2C(=C(C(=C(C#N)C#N)C(=C2F)F)F)C(=C1F)F)F)C#N,1
+56,"2,2',2''-(cyclopropane-1,2,3-triylidene)trimalononitrile",N#C/C(C#N)=C(/C/1=C(C#N)/C#N)\C1=C(C#N)\C#N,1
+57,Tetrafluorotetracyanoquinodimethane,C(#N)C(=C1C(=C(C(=C(C#N)C#N)C(=C1F)F)F)F)C#N,1
+58,"2,5-Difluoro-7,7,8,8-tetracyanoquinodimethane",C1=C(C(=C(C#N)C#N)C=C(C1=C(C#N)C#N)F)F,1
+59,"t-Butyl-tetracyano-9,10-anthraquinodimethane",N#C/C(C#N)=C(C1=C2C=CC=C1)/C3=C(/C2=C(C#N)/C#N)C=C(C(C)(C)C)C=C3,1
+60,"11,11-dicyano-9-anthraquino-10-methane ",O=C(C1=C/2C=CC=C1)C3=C(C=CC=C3)C2=C(C#N)/C#N,1
+61,"11,11,12,12-tetracyano-9,10-anthraquinodimethane",N#C/C(C#N)=C(C1=C/2C=CC=C1)/C3=C(C=CC=C3)C2=C(C#N)/C#N,1
+62,"trimethyl 2,2',2''-(5H-diindeno[1,2-a:1',2'-c]fluorene-5,10,15-triylidene)(2E,2'E,2''E)-tris(2-cyanoacetate)",N#C/C(C(OC)=O)=C1C2=C(C=CC=C2)C3=C/1C(C(C=CC=C4)=C4/C5=C(C(OC)=O)/C#N)=C5C(C6=C/7C=CC=C6)=C3C7=C(C#N)\C(OC)=O,1
+63,"triethyl 2,2',2''-(5H-diindeno[1,2-a:1',2'-c]fluorene-5,10,15-triylidene)(2E,2'E,2''E)-tris(2-cyanoacetate)",N#C/C(C(OCC)=O)=C1C2=C(C=CC=C2)C3=C/1C(C(C=CC=C4)=C4/C5=C(C(OCC)=O)/C#N)=C5C(C6=C/7C=CC=C6)=C3C7=C(C#N)\C(OCC)=O,1
+64,"methyl 2-cyano-2-(4-(dicyanomethylene)cyclohexa-2,5-dien-1-ylidene)acetate",N#C/C(C(OC)=O)=C(C(F)=C/1F)\C(F)=C(F)C1=C(C#N)\C#N,1
+65,"2,5-Dimethyl-7,7,8,8-tetracyanoquinodimethane",CC1=CC(=C(C#N)C#N)C(=CC1=C(C#N)C#N)C,1
+66,"11,11,12,12-Tetracyanonaphtho-2,6-quinodimethane",C1=CC(=C(C#N)C#N)C=C2C1=CC(=C(C#N)C#N)C=C2,1
+67,Tetracyanoethylene,C(#N)C(=C(C#N)C#N)C#N,1
+68,"octyl 2-cyano-2-(4-(dicyanomethylene)cyclohexa-2,5-dien-1-ylidene)acetate",N#C/C(C(OCCCCCCCC)=O)=C(C(F)=C/1F)\C(F)=C(F)C1=C(C#N)\C#N,1
+69,Tetracyanoquinodimethane,c1cc(=C(C#N)C#N)ccc1=C(C#N)C#N,1
