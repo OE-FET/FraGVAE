@@ -23,8 +23,9 @@ Here all possible larger fragments are created through the combination of small 
 - [ ] Add option to include charges on atoms
 - [ ] Add option to include label for single/double/triple bonds as in rings when decoding fragments
 - [ ] Automatic Bayesian optimization of molecules
-- [ ]  More tutorials
-- [ ] Depolyment of software to Amazon webservices
+- [ ] Apache Spark Hypermeter and training integration
+- [ ] More tutorials
+
 
 ### Long term updates:
 - [ ] Include Tesnsorflow GPU Options
