@@ -91,7 +91,7 @@ pip install git+https://github.com/OE-FET/FragVAE
 - **f1_test_utils.py** - Testing functionality for F1 decoder. Compares true probabilities to predicted probabilities (requires updating).
 
 ## Authors:
-The software is written by [John Armitage](https://github.com/jwarmitage) and [Leszek Spalek](https://github.com/LeszkoS). 
+The software is written by [John Armitage](https://github.com/jwarmitage) (jwarmitage@gmail.com) and [Leszek Spalek](https://github.com/LeszkoS). 
 
 ## Funding acknowledgements
 
