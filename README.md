@@ -9,7 +9,9 @@ To demonstrate the FraGVAE process below we provide the flowchart of the autoenc
 <p align="center">
     <img width="" height="" src="https://github.com/OE-FET/FraGVAE/blob/master/imgs_gifs/FraGVAE_flowchart_Ibuprofen.png">
 </p>
-### Encoding
+
+
+### Encoding graphs
 
 The encoding networks are convolutional message passing network based on Duvenaud et. al. [convolutional networks](https://arxiv.org/pdf/1509.09292.pdf) to generated ECFP. Here the network is modified such that feature vectors corresponding to the neighboring atoms and bonds [A<sub>w</sub> ,B<sub>w,v</sub>] for each atom (v) are sent though a neural network before being pooled (summed) at each atom. This additional step removes inherent bond feature exchange symmetry in directly pooling neighboring atom and bond features. In addition at each iteration (i), the graphical encoder updates B<sub>w,v</sub><sup>i</sup> enabling the network to control the flow of certain information through the graphical network as well as generating circular fingerprints centered on bonds. The neural message passing architecture for updating the atoms and bonds are seen in the two equations below:
 <p align="center">
