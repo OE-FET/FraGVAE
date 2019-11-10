@@ -41,7 +41,7 @@ The specifics of the decoding of the bag and connectivity of fragments are demon
 [![GIF of recombination of fragments](https://github.com/OE-FET/FraGVAE/blob/master/imgs_gifs/Ibuprofen_F1.gif)](https://www.youtube.com/watch?v=fiykijkK9ls)
 
 
-Sampling a fragment occurs in two stages, the first stage samples the center node (n<sub>j</sub>) of the fragment and the second is an iterative process that samples the nearest neighbors (nn<sub>j</sub><sup>d</sup>) of the fragment given previous decisions. The sampling stops when the terminating node and nearest neighbors node are sampled. P(n<sub>j</sub>)) and P(nn<sub>j</sub>)) can be described below:
+Sampling a fragment occurs in two stages, the first stage samples the center node (n<sub>j</sub>) of the fragment and the second is an iterative process that samples the nearest neighbors (nn<sub>j,d</sub>) of the fragment given previous decisions. The sampling stops when the terminating node and nearest neighbors node are sampled. P(n<sub>j</sub>)) and P(nn<sub>j</sub>)) can be described below:
 <p align="center">
 <a href="https://www.codecogs.com/eqnedit.php?latex=P(n_{j})&space;=&space;F_{n}([Z_{f}-\sum_{j'=0}^{j-1}Z_{f,j}&space;,\sum_{j'=0}^{j-1}Z_{f,j}&space;])" target="_blank"><img src="https://latex.codecogs.com/gif.latex?P(n_{j})&space;=&space;F_{n}([Z_{f}-\sum_{j'=0}^{j-1}Z_{f,j}&space;,\sum_{j'=0}^{j-1}Z_{f,j}&space;])" title="P(n_{j}) = F_{n}([Z_{f}-\sum_{j'=0}^{j-1}Z_{f,j} ,\sum_{j'=0}^{j-1}Z_{f,j} ])" /></a>
  </p>
