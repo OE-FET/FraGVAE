@@ -17,5 +17,5 @@ setup(
     author='John Armitage',
     author_email='jwarmitage@gmail.com',
     description='Fragment Variational autoencoder for use with molecular graphs, as described in  'UPDATE!!!',
-    install_requires=['numpy','pandas','tensorflow','rdkit','cairosvg','matplotlib','keyobard','Pillow'],
+    install_requires=['numpy','pandas','tensorflow','rdkit','cairosvg','matplotlib','keyboard','Pillow'],
 )
